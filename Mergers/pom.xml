@@ -107,12 +107,12 @@
 		<dependency>
 			<groupId>org.opensourcebim</groupId>
 			<artifactId>PluginBase</artifactId>
-			<version>1.5.9-SNAPSHOT</version>
+			<version>1.5.8</version>
 		</dependency>
 		<dependency>
 			<groupId>org.opensourcebim</groupId>
 			<artifactId>Shared</artifactId>
-			<version>1.5.9-SNAPSHOT</version>
+			<version>1.5.8</version>
 		</dependency>
 	</dependencies>
 	<distributionManagement>
