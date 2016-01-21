@@ -26,26 +26,8 @@ import org.bimserver.shared.exceptions.PluginException;
 
 public class IntelligentGuidBasedModelMergerPlugin implements ModelMergerPlugin {
 
-	private boolean initialized;
-
 	@Override
 	public void init(PluginManagerInterface pluginManager) throws PluginException {
-		initialized = true;
-	}
-
-	@Override
-	public String getDescription() {
-		return "Intelligent GUID Based Fusion";
-	}
-
-	@Override
-	public String getVersion() {
-		return "1.0";
-	}
-
-	@Override
-	public boolean isInitialized() {
-		return initialized;
 	}
 
 	@Override

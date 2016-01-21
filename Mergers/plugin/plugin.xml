@@ -3,16 +3,19 @@
 	<PluginImplementation>
 		<interfaceClass>org.bimserver.plugins.modelmerger.ModelMergerPlugin</interfaceClass>
 		<implementationClass>org.bimserver.merging.IntelligentNameBasedModelMergerPlugin</implementationClass>
+		<description>Intelligent Name Based Fusion</description>
 		<enabled>true</enabled>
 	</PluginImplementation>
 	<PluginImplementation>
 		<interfaceClass>org.bimserver.plugins.modelmerger.ModelMergerPlugin</interfaceClass>
 		<implementationClass>org.bimserver.merging.IntelligentGuidBasedModelMergerPlugin</implementationClass>
+		<description>Intelligent GUID Based Fusion</description>
 		<enabled>true</enabled>
 	</PluginImplementation>
 	<PluginImplementation>
 		<interfaceClass>org.bimserver.plugins.modelmerger.ModelMergerPlugin</interfaceClass>
 		<implementationClass>org.bimserver.merging.BasicModelMergerPlugin</implementationClass>
+		<description>Basic merger</description>
 		<enabled>true</enabled>
 	</PluginImplementation>
 </PluginDescriptor>
