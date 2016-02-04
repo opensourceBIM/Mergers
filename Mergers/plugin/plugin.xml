@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PluginDescriptor>
-	<PluginImplementation>
+	<JavaPlugin>
 		<interfaceClass>org.bimserver.plugins.modelmerger.ModelMergerPlugin</interfaceClass>
 		<implementationClass>org.bimserver.merging.IntelligentNameBasedModelMergerPlugin</implementationClass>
 		<description>Intelligent Name Based Fusion</description>
-		<enabled>true</enabled>
-	</PluginImplementation>
-	<PluginImplementation>
+		
+	</JavaPlugin>
+	<JavaPlugin>
 		<interfaceClass>org.bimserver.plugins.modelmerger.ModelMergerPlugin</interfaceClass>
 		<implementationClass>org.bimserver.merging.IntelligentGuidBasedModelMergerPlugin</implementationClass>
 		<description>Intelligent GUID Based Fusion</description>
-		<enabled>true</enabled>
-	</PluginImplementation>
-	<PluginImplementation>
+		
+	</JavaPlugin>
+	<JavaPlugin>
 		<interfaceClass>org.bimserver.plugins.modelmerger.ModelMergerPlugin</interfaceClass>
 		<implementationClass>org.bimserver.merging.BasicModelMergerPlugin</implementationClass>
 		<description>Basic merger</description>
-		<enabled>true</enabled>
-	</PluginImplementation>
+		
+	</JavaPlugin>
 </PluginDescriptor>
