@@ -19,6 +19,7 @@ package org.bimserver.merging;
 
 import org.bimserver.models.store.ObjectDefinition;
 import org.bimserver.plugins.PluginConfiguration;
+import org.bimserver.plugins.PluginContext;
 import org.bimserver.plugins.PluginManagerInterface;
 import org.bimserver.plugins.modelmerger.ModelMerger;
 import org.bimserver.plugins.modelmerger.ModelMergerPlugin;
@@ -27,12 +28,7 @@ import org.bimserver.shared.exceptions.PluginException;
 public class BasicModelMergerPlugin implements ModelMergerPlugin {
 
 	@Override
-	public void init(PluginManagerInterface pluginManager) throws PluginException {
-	}
-
-	@Override
-	public String getDefaultName() {
-		return "Basic Merger";
+	public void init(PluginContext pluginContext) throws PluginException {
 	}
 
 	@Override

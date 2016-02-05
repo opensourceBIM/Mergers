@@ -19,7 +19,7 @@ package org.bimserver.merging;
 
 import org.bimserver.models.store.ObjectDefinition;
 import org.bimserver.plugins.PluginConfiguration;
-import org.bimserver.plugins.PluginManagerInterface;
+import org.bimserver.plugins.PluginContext;
 import org.bimserver.plugins.modelmerger.ModelMerger;
 import org.bimserver.plugins.modelmerger.ModelMergerPlugin;
 import org.bimserver.shared.exceptions.PluginException;
@@ -27,12 +27,7 @@ import org.bimserver.shared.exceptions.PluginException;
 public class IntelligentNameBasedModelMergerPlugin implements ModelMergerPlugin {
 
 	@Override
-	public void init(PluginManagerInterface pluginManager) throws PluginException {
-	}
-
-	@Override
-	public String getDefaultName() {
-		return "Intelligent Name Based Fusion";
+	public void init(PluginContext pluginContext) throws PluginException {
 	}
 
 	@Override
