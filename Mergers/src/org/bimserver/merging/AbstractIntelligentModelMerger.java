@@ -124,14 +124,16 @@ public abstract class AbstractIntelligentModelMerger extends AbstractModelMerger
 				for (EReference eReference : newestObject.eClass().getEAllReferences()) {
 					if (eReference.isMany()) {
 						if (!newestObject.eIsSet(eReference)) {
+							List<?> l = (List<?>)newestObject.eGet(eReference);
 							for (int i = list.size() - 2; i >= 0; i--) {
 								IdEObject olderObject = list.get(i);
 								if (olderObject.eIsSet(eReference)) {
-									List<?> l = (List<?>)newestObject.eGet(eReference);
-									List a = (List)olderObject.eGet(eReference);
+									List a = (List) olderObject.eGet(eReference);
 									l.addAll(a);
+									for (Object o : a) {
+										referenceCounter.addReference(new ReferenceCounter.MultiReference(newestObject, (IdEObject) o, eReference));
+									}
 									a.clear();
-									referenceCounter.addReference(new ReferenceCounter.MultiReference(newestObject, (IdEObject) olderObject.eGet(eReference), eReference));
 									break;
 								}
 							}
