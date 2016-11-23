@@ -37,6 +37,7 @@ import org.bimserver.models.store.SIPrefix;
 import org.bimserver.plugins.ModelHelper;
 import org.bimserver.plugins.modelmerger.MergeException;
 import org.bimserver.plugins.modelmerger.ModelMerger;
+import org.bimserver.utils.IfcUtils;
 import org.eclipse.emf.common.util.EList;
 
 public abstract class AbstractModelMerger implements ModelMerger {
@@ -74,7 +75,7 @@ public abstract class AbstractModelMerger implements ModelMerger {
 			endModel.setUseDoubleStrings(false);
 			SIPrefix prefix = project.getExportLengthMeasurePrefix();
 			for (IfcModelInterface ifcModel : ifcModels) {
-				float scale = (float) (getLengthUnitPrefix(ifcModel) / Math.pow(10.0, prefix.getValue()));
+				float scale = (float) (IfcUtils.getLengthUnitPrefix(ifcModel) / Math.pow(10.0, prefix.getValue()));
 				setLengthUnitMeasure(ifcModel, prefix);
 				ifcModel.indexGuids();
 				Scaler scaler = new Scaler(ifcModel);
@@ -93,7 +94,7 @@ public abstract class AbstractModelMerger implements ModelMerger {
 
 	private boolean allModelsSameScale(Set<IfcModelInterface> ifcModels, float foundPrefix) {
 		for (IfcModelInterface ifcModel : ifcModels) {
-			float lengthUnitPrefix = getLengthUnitPrefix(ifcModel);
+			float lengthUnitPrefix = IfcUtils.getLengthUnitPrefix(ifcModel);
 			if (foundPrefix != Float.MIN_VALUE && lengthUnitPrefix != foundPrefix) {
 				return false;
 			} else {
@@ -101,85 +102,6 @@ public abstract class AbstractModelMerger implements ModelMerger {
 			}
 		}
 		return true;
-	}
-
-	private float getLengthUnitPrefix(IfcModelInterface model) {
-		float lengthUnitPrefix = 1.0f;
-		boolean prefixFound = false;
-		for (IfcProject ifcProject : model.getAll(IfcProject.class)) {
-			IfcUnitAssignment unitsInContext = ifcProject.getUnitsInContext();
-			if (unitsInContext != null) {
-				EList<IfcUnit> units = unitsInContext.getUnits();
-				for (IfcUnit unit : units) {
-					if (unit instanceof IfcSIUnit) {
-						IfcSIUnit ifcSIUnit = (IfcSIUnit) unit;
-						IfcUnitEnum unitType = ifcSIUnit.getUnitType();
-						if (unitType == IfcUnitEnum.LENGTHUNIT) {
-							IfcSIPrefix prefix = ifcSIUnit.getPrefix();
-							if (prefix != null) {
-								prefixFound = true;
-								switch (prefix) {
-								case EXA:
-									lengthUnitPrefix = 1.0e18f;
-									break;
-								case PETA:
-									lengthUnitPrefix = 1.0e15f;
-									break;
-								case TERA:
-									lengthUnitPrefix = 1.0e12f;
-									break;
-								case GIGA:
-									lengthUnitPrefix = 1.0e9f;
-									break;
-								case MEGA:
-									lengthUnitPrefix = 1.0e6f;
-									break;
-								case KILO:
-									lengthUnitPrefix = 1.0e3f;
-									break;
-								case HECTO:
-									lengthUnitPrefix = 1.0e2f;
-									break;
-								case DECA:
-									lengthUnitPrefix = 1.0e1f;
-									break;
-								case DECI:
-									lengthUnitPrefix = 1.0e-1f;
-									break;
-								case CENTI:
-									lengthUnitPrefix = 1.0e-2f;
-									break;
-								case MILLI:
-									lengthUnitPrefix = 1.0e-3f;
-									break;
-								case MICRO:
-									lengthUnitPrefix = 1.0e-6f;
-									break;
-								case NANO:
-									lengthUnitPrefix = 1.0e-9f;
-									break;
-								case PICO:
-									lengthUnitPrefix = 1.0e-12f;
-									break;
-								case FEMTO:
-									lengthUnitPrefix = 1.0e-15f;
-									break;
-								case ATTO:
-									lengthUnitPrefix = 1.0e-18f;
-									break;
-								case NULL:
-									break;
-								}
-								break;
-							}
-						}
-					}
-				}
-			}
-			if (prefixFound)
-				break;
-		}
-		return lengthUnitPrefix;
 	}
 
 	private void setLengthUnitMeasure(IfcModelInterface model, SIPrefix prefix) {
