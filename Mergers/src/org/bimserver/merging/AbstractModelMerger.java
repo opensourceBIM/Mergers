@@ -1,5 +1,7 @@
 package org.bimserver.merging;
 
+import java.util.HashSet;
+
 /******************************************************************************
  * Copyright (C) 2009-2016  BIMserver.org
  * 
