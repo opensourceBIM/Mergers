@@ -59,7 +59,7 @@ public abstract class AbstractModelMerger implements ModelMerger {
 		boolean allModelsSameScale = allModelsSameScale(ifcModels, foundPrefix);
 		if (allModelsSameScale) {
 			for (IfcModelInterface ifcModel : ifcModels) {
-				for (long key : ifcModel.keySet()) {
+				for (long key : new HashSet<>(ifcModel.keySet())) {
 					IdEObject ideObject = (IdEObject) ifcModel.get(key);
 					if (ideObject instanceof IfcRoot) {
 						String name = ((IfcRoot) ideObject).getName();

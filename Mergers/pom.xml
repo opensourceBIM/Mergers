@@ -157,20 +157,12 @@
 		<dependency>
 			<groupId>org.opensourcebim</groupId>
 			<artifactId>pluginbase</artifactId>
-<<<<<<< HEAD
 			<version>1.5.63-SNAPSHOT</version>
-=======
-			<version>1.5.54-SNAPSHOT</version>
->>>>>>> branch 'master' of https://github.com/opensourceBIM/Mergers.git
 		</dependency>
 		<dependency>
 			<groupId>org.opensourcebim</groupId>
 			<artifactId>shared</artifactId>
-<<<<<<< HEAD
 			<version>1.5.63-SNAPSHOT</version>
-=======
-			<version>1.5.54-SNAPSHOT</version>
->>>>>>> branch 'master' of https://github.com/opensourceBIM/Mergers.git
 		</dependency>
 	</dependencies>
 	<distributionManagement>
