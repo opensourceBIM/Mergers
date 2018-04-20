@@ -123,6 +123,7 @@ public abstract class AbstractIntelligentModelMerger extends AbstractModelMerger
 				// Change all references FROM this object
 				for (EReference eReference : newestObject.eClass().getEAllReferences()) {
 					if (eReference.isMany()) {
+						// This is strange, in some cases the list can be merged without problems, but we just play "safe" here
 						if (!newestObject.eIsSet(eReference)) {
 							List<?> l = (List<?>)newestObject.eGet(eReference);
 							for (int i = list.size() - 2; i >= 0; i--) {
