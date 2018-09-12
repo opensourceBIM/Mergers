@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.opensourcebim</groupId>
 	<artifactId>mergers</artifactId>
-	<version>0.0.11</version>
+	<version>0.0.12-SNAPSHOT</version>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<timestamp>${maven.build.timestamp}</timestamp>
@@ -171,7 +171,7 @@
 		<url>https://github.com/opensourceBIM/Mergers.git</url>
 		<connection>scm:git:https://github.com/opensourceBIM/Mergers.git</connection>
 		<developerConnection>scm:git:https://github.com/opensourceBIM/Mergers.git</developerConnection>
-		<tag>mergers-0.0.11</tag>
+		<tag>mergers-0.0.4</tag>
 	</scm>
 	<organization>
 		<name>OpenSource BIM</name>
