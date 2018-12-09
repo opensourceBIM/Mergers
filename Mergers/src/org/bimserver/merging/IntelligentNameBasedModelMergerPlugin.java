@@ -27,7 +27,7 @@ import org.bimserver.shared.exceptions.PluginException;
 public class IntelligentNameBasedModelMergerPlugin implements ModelMergerPlugin {
 
 	@Override
-	public void init(PluginContext pluginContext) throws PluginException {
+	public void init(PluginContext pluginContext, PluginConfiguration pluginConfiguration) throws PluginException {
 	}
 
 	@Override
@@ -36,7 +36,12 @@ public class IntelligentNameBasedModelMergerPlugin implements ModelMergerPlugin 
 	}
 
 	@Override
-	public ObjectDefinition getSettingsDefinition() {
+	public ObjectDefinition getUserSettingsDefinition() {
+		return null;
+	}
+
+	@Override
+	public ObjectDefinition getSystemSettingsDefinition() {
 		return null;
 	}
 }
