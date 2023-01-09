@@ -28,7 +28,6 @@
   <scm>
     <connection>scm:git:https://github.com/opensourceBIM/Mergers.git</connection>
     <developerConnection>scm:git:https://github.com/opensourceBIM/Mergers.git</developerConnection>
-    <tag>mergers-0.0.19</tag>
     <url>https://github.com/opensourceBIM/Mergers.git</url>
   </scm>
   <issueManagement>
@@ -54,7 +53,7 @@
     <dependency>
       <groupId>org.opensourcebim</groupId>
       <artifactId>shared</artifactId>
-      <version>1.5.183-SNAPSHOT</version>
+      <version>1.5.183</version>
     </dependency>
   </dependencies>
   <repositories>
@@ -121,7 +120,7 @@
         <configuration>
           <serverId>ossrh</serverId>
           <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-          <autoReleaseAfterClose>true</autoReleaseAfterClose>
+          <autoReleaseAfterClose>false</autoReleaseAfterClose>
           <stagingProgressTimeoutMinutes>60</stagingProgressTimeoutMinutes>
         </configuration>
       </plugin>
@@ -129,10 +128,6 @@
         <artifactId>maven-release-plugin</artifactId>
         <version>2.5.3</version>
         <configuration>
-          <project.scm.id>github.com</project.scm.id>
-          <checkModificationExcludes>
-            <checkModificationExclude>Mergers/pom.xml</checkModificationExclude>
-          </checkModificationExcludes>
           <useReleaseProfile>false</useReleaseProfile>
           <releaseProfiles>release</releaseProfiles>
           <goals>deploy</goals>
@@ -160,6 +155,8 @@
                     <arg>--pinentry-mode</arg>
                     <arg>loopback</arg>
                   </gpgArguments>
+                  <keyname>${gpg.keyname}</keyname>
+                  <passphraseServerId>${gpg.keyname}</passphraseServerId>
                 </configuration>
               </execution>
             </executions>
