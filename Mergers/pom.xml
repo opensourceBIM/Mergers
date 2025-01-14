@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.opensourcebim</groupId>
   <artifactId>mergers</artifactId>
-  <version>0.0.70</version>
+  <version>0.0.71-SNAPSHOT</version>
   <name>Mergers</name>
   <description>BIMserver plugin that provides a few basic merging strategies</description>
   <url>https://github.com/opensourceBIM/Mergers</url>
@@ -28,7 +28,7 @@
     <connection>scm:git:https://github.com/opensourceBIM/Mergers.git</connection>
     <developerConnection>scm:git:https://github.com/opensourceBIM/Mergers.git</developerConnection>
     <url>https://github.com/opensourceBIM/Mergers.git</url>
-    <tag>mergers-0.0.70</tag>
+    <tag>HEAD</tag>
   </scm>
   <issueManagement>
     <system>GitHub</system>
